@@ -21,4 +21,7 @@ foreach ($s in $scripts)
 Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -Query $selectdata -Username $username -Password $password -Verbose
 
 cd "C:\Code\TesteDeployAzure\"
+Git pull
+Git add .
 Git commit -m "Automated commit"
+Git push origin master
