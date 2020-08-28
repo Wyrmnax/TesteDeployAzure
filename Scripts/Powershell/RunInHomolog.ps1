@@ -3,8 +3,8 @@ $db3 = "Fitcard_Sisatec"
 $selectdata = "Use s_3818;Select obs_os from os where cod_os = 96"
 $username = "ftcr.sql.hml"
 $password = "MkTY1NP4n"
-$localScriptRoot = "C:\Code\TesteDeployAzure\"
-$localScriptHomologacao = "C:\Code\TesteDeployAzure\Homologacao"
+$localScriptRoot = Get-Location
+$localScriptHomologacao = $($localScriptRoot) + "/Homologacao"
 $scripts = Get-ChildItem $localScriptRoot | Where-Object {$_.Extension -eq ".sql"}
  
 foreach ($s in $scripts)
