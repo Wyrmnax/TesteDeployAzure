@@ -3,10 +3,19 @@ $db3 = "Fitcard_Sisatec"
 $selectdata = "Use s_3818;Select obs_os from os where cod_os = 96"
 $username = "ftcr.sql.hml"
 $password = "MkTY1NP4n"
-$localScriptRoot = Get-Location
-$localScriptHomologacao = $($localScriptRoot) + "/Homologacao"
-$scripts = Get-ChildItem $localScriptRoot | Where-Object {$_.Extension -eq ".sql"}
+$homologacao = "\Powershell"
+#$localScriptHomologacao = $localScriptRoot + $homologacao
  
+#Write-Host $localScriptRoot
+#Write-Host $PSScriptRoot
+#Join-Path $PSScriptRoot $homologacao
+Write-Host $PSScriptRoot
+Set-Location $PSScriptRoot
+Set-Location ..
+$location = Get-Location
+Write-Host "Localizacao "$location
+
+$scripts = Get-ChildItem $location | Where-Object {$_.Extension -eq ".sql"}
 foreach ($s in $scripts)
     {
         #Execute each script and then move it
