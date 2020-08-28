@@ -5,15 +5,17 @@ $username = "ftcr.sql.hml"
 $password = "MkTY1NP4n"
 $homologacao = "\Powershell"
 #$localScriptHomologacao = $localScriptRoot + $homologacao
- 
-#Write-Host $localScriptRoot
-#Write-Host $PSScriptRoot
-#Join-Path $PSScriptRoot $homologacao
+
+#Get Scripts Location
 Write-Host $PSScriptRoot
 Set-Location $PSScriptRoot
 Set-Location ..
 $location = Get-Location
-Write-Host "Localizacao "$location
+Write-Host "Localizacao " $location
+
+#Set script destnation
+$destination = Join-Path -Path $location -ChildPath "\Homologacao"
+Write-Host "Destination " $destination
 
 $scripts = Get-ChildItem $location | Where-Object {$_.Extension -eq ".sql"}
 foreach ($s in $scripts)
@@ -22,7 +24,7 @@ foreach ($s in $scripts)
         Write-Host "Running Script : " $s.Name -BackgroundColor DarkGreen -ForegroundColor White
         $script = $s.FullName
         Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -InputFile $script -Username $username -Password $password -Verbose     
-        Move-Item -Path $s.FullName -Destination $localScriptHomologacao
+        Move-Item -Path $s.FullName -Destination $destination
     }
 
 #Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -InputFile $inputfile -Username $username -Password $password -Verbose
@@ -30,8 +32,8 @@ foreach ($s in $scripts)
 Invoke-Sqlcmd -ServerInstance $SQLServer -Database $db3 -Query $selectdata -Username $username -Password $password -Verbose
 
 #Push script moves to git
-Set-Location "C:\Code\TesteDeployAzure\"
-Git pull
-Git add .
-Git commit -m "Automated commit"
-Git push origin master
+#Set-Location "C:\Code\TesteDeployAzure\"
+#Git pull
+#Git add .
+#Git commit -m "Automated commit"
+#Git push origin master
