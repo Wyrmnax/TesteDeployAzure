@@ -6,7 +6,7 @@ $password = "MkTY1NP4n"
 $homologacao = "\Powershell"
 #$localScriptHomologacao = $localScriptRoot + $homologacao
 
-Install-Module -Name SqlServer -Force
+Install-Module -Name SqlServer -Force -Scope CurrentUser
 
 #Get Scripts Location
 Write-Host $PSScriptRoot
