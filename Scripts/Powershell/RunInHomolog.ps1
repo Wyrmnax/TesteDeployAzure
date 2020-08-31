@@ -6,7 +6,7 @@ $password = "MkTY1NP4n"
 $homologacao = "\Powershell"
 #$localScriptHomologacao = $localScriptRoot + $homologacao
 
-Install-PackageProvider -Name NuGet -Force
+Install-PackageProvider -Name NuGet -Force -Scope CurrentUser
 Install-Module -Name SqlServer -Force -Scope CurrentUser
 
 #Get Scripts Location
