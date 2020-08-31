@@ -4,8 +4,7 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'Default'
+pool: 'Default'
 
 steps:
 - checkout: self
