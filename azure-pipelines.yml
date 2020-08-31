@@ -5,7 +5,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'Default'
 
 steps:
 - checkout: self
