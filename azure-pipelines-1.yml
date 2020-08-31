@@ -1,0 +1,11 @@
+# Starter pipeline
+
+
+trigger:
+- master
+
+pool: 'Default'
+
+steps:
+- checkout: self
+  clean: true
