@@ -13,6 +13,8 @@ Set-Location ..
 $location = Get-Location
 Write-Host "Localizacao " $location
 
+Install-Module -Name SqlServer -Scope CurrentUser
+
 #Set script destnation
 $destination = Join-Path -Path $location -ChildPath "\Homologacao"
 Write-Host "Destination " $destination
